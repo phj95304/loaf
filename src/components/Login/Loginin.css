@@ -1,0 +1,20 @@
+.signbackground{
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 0.5)
+      ), url('./background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.signinform{
+    background-color:whitesmoke; 
+    margin-right: 20%;
+    margin-left: 20%;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-bottom: 5%;
+    padding-top: 1%;
+}
+.signintitle{
+    text-align: center;
+}
