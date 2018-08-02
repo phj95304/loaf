@@ -1,12 +1,8 @@
-.signbackground{
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.5), 
-        rgba(0, 0, 0, 0.5)
-      ), url('./background.jpg');
+.loginbackground{
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
-.signinform{
+.loginform{
     background-color:whitesmoke; 
     margin-right: 20%;
     margin-left: 20%;
@@ -15,6 +11,6 @@
     padding-bottom: 5%;
     padding-top: 1%;
 }
-.signintitle{
+.logintitle{
     text-align: center;
 }
