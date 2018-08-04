@@ -1,0 +1,15 @@
+ 
+.portfolio-item {
+  margin-bottom: 30px;
+}
+  
+.title {
+  font-size: 40px;
+  margin-top: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.recommand {
+  background-color: gray;
+  margin: 10px;
+}

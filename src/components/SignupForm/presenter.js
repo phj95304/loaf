@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './styles.css'
 import PropTypes from 'prop-types';
 
@@ -7,14 +7,15 @@ const SignupForm = props => (
     <div className = "signbackground">
           <br/>
           <br/>
-<Form className = "signinform" onSubmit = {props.handleSubmit}>
-        <FormGroup className = "signintitle">
-          <Label for="exampleEmail" >회원가입</Label>
+<Form className = "signupform" onSubmit = {props.handleSubmit}>
+        <FormGroup className = "signuptitle_detail">
+          <br/>
+          <Label className = "signup_title">Sign up</Label>
           <Input plaintext>아래 내용을 입력해 주세요</Input>
         </FormGroup>
 
         <FormGroup>
-          <Label for="exampleName">닉네임</Label>
+          <Label for="exampleName"><i class="fas fa-user"></i>&nbsp;닉네임</Label>
           <Input 
             type="username" 
             name="username" 
@@ -25,7 +26,7 @@ const SignupForm = props => (
         </FormGroup>
         
         <FormGroup>
-          <Label for="exampleEmail">이메일</Label>
+          <Label for="exampleEmail"><i class="fas fa-at"></i>&nbsp;이메일</Label>
           <Input 
             type="email" 
             name="email" 
@@ -35,11 +36,8 @@ const SignupForm = props => (
             />
         </FormGroup>
 
-        
-
-        
         <FormGroup>
-          <Label for="exampleName">성명</Label>
+          <Label for="exampleName"><i class="fas fa-user"></i>&nbsp;성명</Label>
           <Input 
             type="name" 
             name="name" 
@@ -50,7 +48,7 @@ const SignupForm = props => (
         </FormGroup>
 
         <FormGroup>
-          <Label for="examplePassword">비밀번호</Label>
+          <Label for="examplePassword"><i class="fas fa-lock"></i> &nbsp;비밀번호</Label>
           <Input 
              type="password" 
              name="password1" 
@@ -61,25 +59,25 @@ const SignupForm = props => (
         </FormGroup>
 
         <FormGroup>
-          <Label for="examplePassword">비밀번호 확인</Label>
+          <Label for="examplePassword"><i class="fas fa-lock"></i>&nbsp;비밀번호 확인</Label>
           <Input 
              type="password" 
              name="password2" 
              value={props.password2Value}
-             placeholder="verify Password" 
+             placeholder="Check Password" 
              onChange={props.handleInputChange}
            />
         </FormGroup>
  
-        <hr/>
-        <div>
-        <Input type="submit" value="회원가입"/> 
+          <hr/>
+          <div>
+            <Button type="submit"  className = "submit_btn" ><i class="fas fa-sign-in-alt">&nbsp;Sign up</i></Button> 
           </div>
           
         </Form>
-        <br/>
-        <br/>
-            </ div>
+      <br/>
+  <br/>
+</div>
 )
 
 SignupForm.propsTypes = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, FormGroup, Label, Input} from 'reactstrap';
+import { Form, FormGroup, Label, Input,Button} from 'reactstrap';
 //import FacebookLogin from 'react-facebook-login';
 import './styles.css'
 
@@ -9,12 +9,12 @@ const LoginForm = (props) => (
             <br/>
             <br/>
             <Form className = "loginform" onSubmit={props.handleSubmit}>
-                <FormGroup className = "logintitle">
-                <Label for="exampleEmail" >로그인</Label>
+                <FormGroup className = "logintitle_detail">
+                <Label className = "login_title" >Sign in</Label>
                 <Input plaintext>아래 내용을 입력해 주세요</Input>
                 </FormGroup>
                 <FormGroup>
-                    <Label for="exampleEmail">유저아이디</Label>
+                    <Label for="exampleEmail"><i class="fas fa-at"></i>&nbsp;아이디</Label>
                     <Input
                         type="text" 
                         name="username" 
@@ -24,7 +24,7 @@ const LoginForm = (props) => (
                     />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="examplePassword">비밀번호</Label>
+                    <Label for="examplePassword"><i class="fas fa-lock"></i>&nbsp;비밀번호</Label>
                     <Input 
                         type="password" 
                         name="password" 
@@ -34,7 +34,7 @@ const LoginForm = (props) => (
                     />
                 </FormGroup>  
                 <hr/>
-                <Input type="submit" value="로그인"/>
+                <Button type="submit"  className = "submit_btn" ><i class="fas fa-sign-in-alt">&nbsp;Sign in</i></Button> 
                 <br />   
             </Form>
             

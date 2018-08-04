@@ -1,9 +1,6 @@
-.loginbackground{
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
+
 .loginform{
-    background-color:whitesmoke; 
+    background-color:white; 
     margin-right: 20%;
     margin-left: 20%;
     padding-right: 10%;
@@ -11,6 +8,16 @@
     padding-bottom: 5%;
     padding-top: 1%;
 }
-.logintitle{
+.logintitle_detail{
     text-align: center;
+    
+}
+.login_title{
+    font-size: 2rem;
+}
+
+.submit_btn{
+    border-color: blueviolet;
+    background-color: white;
+    color: blueviolet
 }

@@ -4,10 +4,10 @@ import SignupForm from '../SignupForm';
 import './styles.css';
 
 const Auth = (props) => (
-    <div className="container">
+    <div className="auth">
         {props.action === 'login' && <LoginForm />}
         {props.action === 'signup' && <SignupForm />}
-        <div className="auth">
+        <div className="auth_action">
             {props.action === "login" && (
                 <p>계정이 없으십니까?{" "}
                     <span onClick={props.changeAction}>

@@ -7,8 +7,8 @@ import { Route, Switch } from 'react-router-dom';
 import Footer from '../Footer';
 import Landing from '../Landing';
 import Auth from '../Auth';
-import Projects from '../showProject/presenter';
-import ProjectDetail from '../projectDetails/ProjectDetail';
+//import ProjectsItem from '../showProject/projectItem';
+//import ProjectDetail from '../projectDetails/ProjectDetail';
 
 const App = props  => [
     // Nav,
@@ -23,17 +23,17 @@ App.propTypes = {
   const PrivateRoutes = props => (
     <Switch>
         <Route exact path="/" component={Landing} />
-        
     </Switch>
 );
 
 const PublicRoutes = props => (
     <Switch>
         <Route exact path="/" component={Auth} />
-        <Route exact path="/projects" component={Projects}/>
-        <Route exact path="/projects/projectDetail" component={ProjectDetail}/>
+        
         
     </Switch>
 );
 
 export default App;
+//<Route exact path="/projects" component={ProjectsItem}/>
+//<Route exact path="/projects/projectDetail" component={ProjectDetail}/>
