@@ -1,0 +1,20 @@
+.comment_prop{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.comment_input{
+    margin-left:10%; 
+}
+comment_btn{
+    text-align: left;
+}
+.btn{
+    color:white;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1%;
+    
+    background-color: gray;
+  
+}

@@ -3,6 +3,7 @@
 
 const SAVE_TOKEN = "SAVE_TOKEN";
 const LOGOUT = "LOGOUT";
+const SET_USERNAME = "SET_USERNAME";
 
 //action creators
 function saveToken(token) {
@@ -16,6 +17,13 @@ function logout() {
   return {
     type: LOGOUT
   }
+}
+
+function setUsername(username) {
+  return {
+    type: SET_USERNAME,
+    username
+  };
 }
 
 function facebookLogin(access_token) {
@@ -55,6 +63,7 @@ function facebookLogin(access_token) {
       .then(json => {
         if(json.token) {
           dispatch(saveToken(json.token))
+          dispatch(setUsername(username));
         }
       })
       .catch(err => console.log(err));
@@ -81,6 +90,7 @@ function facebookLogin(access_token) {
       .then(json => {
         if(json.token) {
           dispatch(saveToken(json.token))
+          dispatch(setUsername(username));
         }
       })
       .catch(err => console.log(err));
@@ -103,6 +113,8 @@ function reducer(state = initialState, action) {
           return applySetToken(state, action); 
         case LOGOUT : 
           return applyLogout(state, action);
+        case SET_USERNAME:
+          return applySetUsername(state, action);   
         default: 
           return state;
     }
@@ -126,12 +138,22 @@ function applyLogout(state, action) {
   }
 }
 
+function applySetUsername(state, action) {
+  const { username } = action;
+  localStorage.setItem("username", username);
+  return {
+    ...state,
+    username
+  };
+}
+
 //exports
 
 const actionCreators = {
     facebookLogin,
     usernameLogin,
     createAccount,
+    setUsername,
     logout
 };
 
