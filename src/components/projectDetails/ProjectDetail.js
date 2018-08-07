@@ -2,7 +2,8 @@ import React from 'react'
 import img from './download.jpg';
 import './projectDetailDia.css';
 import {Card, Button} from 'reactstrap';
-
+import Comments from '../Comments/presenter'
+import CommentItem from '../CommentItem/presenter';
 
 const ProjectDetail = (props) => {
 
@@ -59,7 +60,8 @@ const ProjectDetail = (props) => {
       </div>
       <hr/>
       <div>
-         
+         <Comments/>
+         <CommentItem/>
           
       </div>
       <br/><br/>

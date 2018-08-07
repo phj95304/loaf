@@ -1,25 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Loading from '../Loading/Spinner';
-import './styles.css';
-import PropTypes from  'prop-types';
-import ProjectItem from '../ProjectItem';
+import ProjectsItem from '../ProjectItem';
 
-const ProjectFeed = (props)  => {
-        const { feed, loading } = this.props; //배열임
-        let postContent;
-
-        if(feed === null || loading || Object.keys(feed).length === 0){
-            postContent = <Loading />
-          } else {
-            postContent = feed.map(project => (
-                <ProjectItem key={project.id} project={project}  />
-            ));
+const Feed = props => {
+    if(props.loading) {
+        return <LoadingFeed />
+    } else if(props.feed){
+        return <RenderFeed {...props} />
     }
 }
 
-ProjectFeed.propTypes = {
-    getFeed : PropTypes.func.isRequired,
-    feed : PropTypes.array.isRequired
-}
+const LoadingFeed = props => (
+    <div>
+        <Loading />
+    </div>
+);
 
-export default ProjectFeed;
+
+const RenderFeed = props => (
+    <div>
+        <br/>
+      <h1>
+        &nbsp; #프로젝트
+      </h1>
+      <br></br>
+        {props.feed.map(project => <ProjectsItem { ...project} key={project.id} />)} 
+    </div>
+)
+
+Feed.propTypes = {
+    loading: PropTypes.bool.isRequired
+};
+
+export default Feed;

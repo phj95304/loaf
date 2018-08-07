@@ -1,8 +1,8 @@
 import React from 'react';
-import './CommentsItem.css';
+import './styles.css';
 import ji from './ji.jpg';
 
-const CommentsItem = props => {
+const CommentItem = props => {
     return(
         <div className = "comment_form">
             <div className = "comment_prop">
@@ -17,7 +17,7 @@ const CommentsItem = props => {
             </div>
 
             <div className = "comment_value">
-                정말 좋은 프로젝트입니다. 혹시 언제 프로적트가 시작되나요?
+                정말 좋은 프로젝트입니다. 언제 프로젝트가 시작되나요?
             </div>
 
             <div className = "comment_time">
@@ -28,4 +28,4 @@ const CommentsItem = props => {
     )
     
 }
-export default CommentsItem;
+export default CommentItem;

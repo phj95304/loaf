@@ -1,30 +1,38 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ProjectsFeed from './presenter';
+import ProjectFeed from './presenter';
 
 class Container extends Component {
-    state = {
-        loading:true
+    state= {
+        loading: true
+    };
+    static propTypes ={ 
+        getFeed: PropTypes.func.isRequired
     };
 
-    static propTypes ={
-        getFeed : PropTypes.func.isRequired
-    };
-
-
-    componentDidMount() {
-        this.props.getFeed();
-    };
+    componentWillReceiveProps = nextProps => {
+        if(nextProps.feed){
+            this.setState({
+                loading: false
+            })
+        }
+    }
+    
+    componentDidMount(){
+        const { getFeed } = this.props;
+        if(!this.props.feed){
+            getFeed();
+        } else {
+            this.setState({
+                loading:false
+            })
+        }
+    }
 
     render() {
-        const {feed} = this.props;
-        return(
-            <ProjectsFeed
-             {...this.props}
-             {...this.state}
-            />
-        )
-    };
+        const { feed } = this.props;
+        return <ProjectFeed {...this.state}  feed={feed} />
+    }
 }
 
 export default Container;

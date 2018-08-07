@@ -1,4 +1,5 @@
 // imports
+
 import { actionCreators as userActions } from "redux/modules/users";
 
 // actions
@@ -8,7 +9,7 @@ const SET_PROJECT = "SET_PROJECT";
 
 // action creators
 
-function setFeed(feed) {//state를 저장시킨다
+function setFeed(feed){
     return {
         type: SET_FEED,
         feed
@@ -27,7 +28,7 @@ function setProject(projectId){
 
 function getFeed(){//전체 프로젝트 가져오기
     return (dispatch, getState) => {
-        const { user : { token } } = getState();
+        const { users : { token } } = getState();
         fetch("/projects/", {
             method: "GET",
             headers: {
@@ -44,7 +45,7 @@ function getFeed(){//전체 프로젝트 가져오기
     }
 }
 
-function getProject(projectId){//프로젝트 한개만 가져옴
+function getProject(projectId){
     return (dispatch, getState) => {
         const { users : { token }} = getState();
         fetch(`/projects/${projectId}/`, {
@@ -83,7 +84,7 @@ function reducer(state= initialState, action) {
 
 // reducer functions
 
-function applySetFeed(state, action){
+function applySetFeed(state, action) {
     const { feed } = action;
     return {
         ...state,

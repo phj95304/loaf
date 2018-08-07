@@ -3,7 +3,9 @@
 
 const SAVE_TOKEN = "SAVE_TOKEN";
 const LOGOUT = "LOGOUT";
+const SET_PROFILE = "SET_PROFILE";
 const SET_USERNAME = "SET_USERNAME";
+
 
 //action creators
 function saveToken(token) {
@@ -19,12 +21,22 @@ function logout() {
   }
 }
 
+function setProfile(loggedInUser){
+  return {
+    type : SET_PROFILE,
+    loggedInUser
+  }
+}
+
 function setUsername(username) {
   return {
     type: SET_USERNAME,
     username
   };
 }
+
+//API actions
+
 
 function facebookLogin(access_token) {
     return dispatch => {
@@ -55,8 +67,8 @@ function facebookLogin(access_token) {
           "Content-Type" : "application/json"
         },
         body : JSON.stringify({
-          username : username,
-          password : password
+          username,
+          password,
         })
       })
       .then(response => response.json())
@@ -70,7 +82,7 @@ function facebookLogin(access_token) {
     }
   }
 
-  function createAccount(username,email, name, password1, password2 ) {
+  function createAccount(username,email, name, password1, password2) {
     return function(dispatch) {
       fetch("/rest-auth/registration/", {
         method: "POST",
@@ -79,17 +91,16 @@ function facebookLogin(access_token) {
         },
         body : JSON.stringify({
           username,
-          email,
           name,
+          email,
           password1,
           password2,
-          
         })
       })
       .then(response => response.json())
       .then(json => {
         if(json.token) {
-          dispatch(saveToken(json.token))
+          dispatch(saveToken(json.token));
           dispatch(setUsername(username));
         }
       })
@@ -97,13 +108,35 @@ function facebookLogin(access_token) {
     }
   }
 
-//API actions
+  function getProfile(){
+    return (dispatch, getState) => {
+      const { users: { token, username }} = getState()
+  
+      fetch(`/users/${username}/`, {
+        method: "GET",
+        headers: {
+          Authorization : `JWT ${token}`
+        }
+      })
+      .then(response => {
+        if(response.status === 401){
+          dispatch(logout());
+        }
+        return response.json();
+      })
+      .then(json => {
+        dispatch(setProfile(json));
+      })
+      .catch(err => console.log(err));
+    };
+  }
 
 //initial state
 
 const initialState = {
     isLoggedIn: localStorage.getItem("jwt") ? true : false,
-    token : localStorage.getItem("jwt")
+    token : localStorage.getItem("jwt"),
+    username: localStorage.getItem("username")
 };
 
 //reducer
@@ -113,12 +146,15 @@ function reducer(state = initialState, action) {
           return applySetToken(state, action); 
         case LOGOUT : 
           return applyLogout(state, action);
+        case SET_PROFILE:
+          return applySetProfile(state, action); 
         case SET_USERNAME:
-          return applySetUsername(state, action);   
+          return applySetUsername(state, action);    
         default: 
           return state;
     }
 }
+
 //reducer functions
 
 function applySetToken(state, action) {
@@ -133,9 +169,18 @@ function applySetToken(state, action) {
 
 function applyLogout(state, action) {
   localStorage.removeItem("jwt");
+  localStorage.removeItem("username");
   return {
     isLoggedIn : false
   }
+}
+
+function applySetProfile(state, action) {
+  const { loggedInUser } = action;
+  return {
+    ...state,
+    loggedInUser
+  };
 }
 
 function applySetUsername(state, action) {
@@ -153,8 +198,9 @@ const actionCreators = {
     facebookLogin,
     usernameLogin,
     createAccount,
-    setUsername,
-    logout
+    logout,
+    getProfile,
+    setUsername
 };
 
 
