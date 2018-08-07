@@ -8,7 +8,7 @@ const Comments = props => {
   return (
     <div cl assName="form">
     <Form>
-     <Label className = "intro1">댓글 <span className = "count">25</span></Label>
+     <Label className = "comments_intro1">댓글 <span className = "comments_count">25</span></Label>
      <div className = "comment_prop">
       <div className = "comment_input">
           <Input 
@@ -25,10 +25,6 @@ const Comments = props => {
           <button onClick = {props.onCreate} className = "btn"> &nbsp;&nbsp;등록&nbsp;&nbsp; </button>
           </div>
          </div>
-    </Form>
-    <Form>
-      
-    
     </Form>
     </div>
   );

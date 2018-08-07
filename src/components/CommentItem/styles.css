@@ -1,6 +1,7 @@
 .comment_form{
-    border-top: 1px solid gray;
     border-bottom: 1px solid gray;
+    margin-left: 8%;
+    margin-right:8%;
 }
 .comment-prop{
     display: grid;
@@ -23,4 +24,8 @@
     text-align: left;
     font-size: 1rem;
     margin: 3%;
+}
+.comment_time{
+    margin-left: 3%;
+    font-size: 0.8rem;
 }

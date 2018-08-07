@@ -3,7 +3,7 @@ import img from './download.jpg';
 import './projectDetailDia.css';
 import {Card, Button} from 'reactstrap';
 import Comments from '../Comments/presenter'
-import CommentItem from '../CommentItem/presenter';
+import CommentItem from '../CommentItem';
 
 const ProjectDetail = (props) => {
 

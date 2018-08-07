@@ -2,7 +2,15 @@
     display: grid;
     grid-template-columns: 80% 20%;
 }
-
+.comments_intro1{
+    margin-left: 8%;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.comments_count{
+    font-weight: bold;
+    font-size: 0.9rem;
+}
 .comment_input{
     margin-left:10%; 
 }
