@@ -1,12 +1,12 @@
 import React from 'react'
-import img from './download.jpg';
 import './projectDetailDia.css';
 import {Card, Button} from 'reactstrap';
 import Comments from '../Comments/presenter'
 import CommentItem from '../CommentItem';
+import CommentEmpty from '../CommentEmpty';
 
 const ProjectDetail = (props) => {
-
+  const {projectId, feed} = props;
   return (
     <div >
     <br/>
@@ -15,53 +15,50 @@ const ProjectDetail = (props) => {
         <p className="index">
           Project Details
         </p>
-        <img src={img} className="project_img"/>
+        <img src={feed.projectId.file} className="project_img"/>
       </div>
 
       <div className="project_title">
-        <p className = "title">Project Title</p>
+        <p className = "title">{}</p>
         <p className = "count">
-          3/10 명
+          {feed.projectId.member_count}/{feed.projectId.max_member} 명
           <span className = "apply_btn"> <Button className = "btn"> <i class="fas fa-angle-right"></i> 지원하기 </Button></span>
         </p>
       </div>
 
       <div className = "creator">
       <div >
-        <img src = {img} className = "creator_img" />
+        <img src = {feed.projectId.creator.profile_image} className = "creator_img" />
         </div>
         <div className = "creator_profile">
-        <p className = "creator_name"><span className = "name">김지수 </span> 님의 소개  </p>
-        <p className = "creator_univ"> 학교 </p>
-        <p className = "creator_bio"> 안뇽kdkdkdkdkdkdkdkdkdkdkdkdkdkdkdkdk </p>
+        <p className = "creator_name"><span className = "name">{feed.projectId.creator.username} </span> 님의 소개  </p>
+        <p className = "creator_univ"> {feed.projectId.creator.school} </p>
+        <p className = "creator_bio"> {feed.projectId.creator.bio} </p>
         </div>
       </div>
 
       <div className = "project_body">
         <p className = "intro1">프로젝트 개요</p>
-        <p className = "project_caption"> 아아ㅏ아ㅏ아ㅏㅏ아아아아아앙</p>
+        <p className = "project_caption"> {feed.projectId.caption}</p>
       </div>
 
       <div className = "member">
         <p className = "intro2"> 참가자</p>
         <img 
         className = "member_photo"
-        src = {img}
-        />
-        <img 
-        className = "member_photo"
-        src = {img}
+        src = {feed.projectId.members[0].profile_image}
         />
       </div>
       <div className = "interest">
         <p className = "intro3"> <i class="fas fa-tags"></i>프로젝트 태그 
-        <span className = "tags"> &nbsp;  #dk #kf </span></p>
+        <span className = "tags"> &nbsp;  {feed.projectId.tags} </span></p>
         <br/>
       </div>
       <hr/>
       <div>
          <Comments/>
          <CommentItem/>
+        <CommentEmpty/>
           
       </div>
       <br/><br/>

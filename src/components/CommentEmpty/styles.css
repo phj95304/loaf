@@ -1,0 +1,14 @@
+.commentempty_prop{
+    background-color: beige;
+    align-content: center;
+}
+
+.icon{
+    size: 7px;
+}
+.commentempty_caption{
+    text-align: center;
+    color: lightgray;
+    font-weight: bold;
+    font-size: 2rem;
+}
