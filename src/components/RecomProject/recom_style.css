@@ -1,90 +1,44 @@
-.container{
-
-}
-.intro1{
-  font-size: 2rem;
-  color: white;
-}
-.recommend_project_card{
-  width: 350px;
-  height: 160px;
-  margin-left: 5%;
+.project_card{
+  width: 60%;
+  height: 20%;
+  margin-left: 15%;
+  margin-right: 5%;
   background-color: rgba( 211, 211, 211, 0.8 );
-  display: grid; 
-  grid-template-columns: 100px 115px 130px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */ 
+  display: grid;
+  grid-template-rows: 20px 50px 180px 80px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */
 }
-.member_img_history{
-  line-height: 0.5%;
+.projectItem_intro1{
+  text-align: right;
+  font-size: 1rem;
+  margin-top:1.3%; 
+  margin-right: 2%;
 }
-.member_img{
-  width: 90px;
-  height: 90px;
-  margin-top: 28%;
-  margin-left:10%;
+.projectItem_img{
+  width: 100%;
+  height: 200px;
+}
+.project_summary{
+  display: grid;
+  grid-template-columns: 50px 190px 100px;
+}
+.projectItem_creator_img{
+  width: 43px;
+  height: 43px;
+  margin-left: 7%;
+  margin-top: 10%;
   border-radius: 50%;
 }
-.on_project{
-  margin-left: 10%;
-}
-.member_prop{
-  line-height:30%;
-  margin-top: 20%;
-}
-
-.member_name{
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: left;
-  margin-left: 20%;
-  
-}
-.member_univ{
-  font-size: 1rem;
-  text-align: left;
-  margin-left: 20%;
-}
-.member_residence{
-  margin-left: 20%;
-  text-align: left;
-  font-size: 1rem;
-}
-.go_to_profile{
-  background-color: rgb(144, 60, 126);
-  border-radius: 15%;
-  color: white;
-  border: none;
+.projectItem_title{
+  margin-top: 7%;
+  margin-left: 5%;
   font-size: 0.8rem;
-  margin-right: 10%;
-  
 }
-.tag_prop{
-  line-height: 15%;
-  display: grid;
-  grid-template-rows: 20% 80%;
+.max_member{
+  margin-top: 13%;
+  margin-left: 5%;
+  font-size: 0.8rem;
 }
-.intro2{
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-right: 15%; 
+.projectItem_caption{
+  margin-top: 5%;
 }
-.tags{
-  width: 110px;
-  height: 110px;
-  border-radius: 50%; 
-  background-color: lightgray;
-}
-
-.tag1{
-  text-decoration-line: underline;
-  margin-top: 30%;
-}
-.tag2{
-  text-decoration-line: underline;
-}
-.tag3{
-  text-decoration-line: underline;
-
-}
-  
-  

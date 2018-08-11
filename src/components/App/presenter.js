@@ -9,6 +9,7 @@ import Landing from '../Landing';
 import Auth from '../Auth';
 import ProjectFeed from '../ProjectFeed';
 import ProjectDetail from '../projectDetails';
+import ScoreForm from '../ScoreForm/presenter';
 
 const App = props => [
   // Nav, props.isLoggedIn ? <Navbar key={1}/> : null,
@@ -24,12 +25,14 @@ const PrivateRoutes = props => (
     <Route exact path="/" component={Landing}/>
     <Route exact path="/projects" component={ProjectFeed}/>
     <Route exact path="/projects/:id" component={ProjectDetail}/>
+    <Route exact path="/score" component={ScoreForm}/>
   </Switch>
 );
 
 const PublicRoutes = props => (
   <Switch>
     <Route exact path="/" component={Auth}/>
+    
   </Switch>
 );
 export default App;

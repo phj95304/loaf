@@ -1,0 +1,28 @@
+.score-container{
+    margin-left:25%;
+    margin-right:25%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: left;
+    background-color: whitesmoke;
+
+}
+.score-title{
+    text-align:center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.score-body{
+    padding-left:10%;
+    padding-right: 10%;
+
+}
+
+.score-button{
+    text-align: center;
+}

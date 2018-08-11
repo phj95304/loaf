@@ -6,8 +6,7 @@ class Container extends Component {
 
     static propTypes ={
         getProject : PropTypes.func.isRequired,
-        logout : PropTypes.func.isRequired,
-        getFeed: PropTypes.func.isRequired
+        logout : PropTypes.func.isRequired
     };
 
     componentDidMount() {
@@ -26,7 +25,6 @@ class Container extends Component {
         return(
             <ProjectDetail
              {...this.props}
-             {...this.state}
             />
         )
     };

@@ -1,11 +1,12 @@
 .project_card{
-    width: 440px;
-    height: 330 px;
-    margin-left: 35%;
-    margin-right: 35%;
+    width: 60%;
+    height: 20%;
+    margin-left: 15%;
+    margin-right: 5%;
     background-color: rgba( 211, 211, 211, 0.8 );
     display: grid;
     grid-template-rows: 20px 50px 180px 80px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */
   }
   .projectItem_intro1{
     text-align: right;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Card} from 'reactstrap';
 import './styles.css';
 import {Link} from 'react-router-dom';
-
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const ProjectsItem = (props) => {
     return (
@@ -26,14 +26,14 @@ const ProjectsItem = (props) => {
                 </div>
 
                 <div className = "projectItem_project_prop">
-                    <p className = "max_member"> 3/{props.max_member}명
+                    <p className = "max_member"> {props.member_count}/{props.max_member}명
                     <span className = "region"> {props.creator.address} </span> 
                     </p>
                 </div>
 
             </div>
 
-            <Link to = "/projects/projectDetail">
+            <Link to = {`/projects/${props.id}`}>
             <div>
             <img 
                 className = "projectItem_img"
@@ -43,11 +43,15 @@ const ProjectsItem = (props) => {
             </div>
             </Link>
 
-            <div className = "projectItem_caption">
-                {props.caption}
-               
+            <div className = "projectItem_caption">    
+            <LinesEllipsis
+                text={props.caption}
+                maxLine='2'
+                ellipsis='...'
+                trimRight
+                basedOn='letters'
+            />
             </div>
-            
 
         </Card>
 

@@ -3,7 +3,7 @@ import './CommentsForm.css';
 import {Label, Input, Form} from 'reactstrap';
 import PropTypes from 'prop-types';
 
-const Comments = props => {
+const CommentsInputForm = props => {
 
   return (
     <div cl assName="form">
@@ -37,4 +37,4 @@ Comments.propsTypes= {
   onCreate: PropTypes.func.isRequired
 }
 
-export default Comments;
+export default CommentsInputForm;

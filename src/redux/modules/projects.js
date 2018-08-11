@@ -14,10 +14,10 @@ const SET_COMMENT = "SET_COMMENT";//action을 정의할때 쓸 변수
 
 //comment함수를 만들다
 
-function registerComment(loggedInUser){//등록된 댓글데이터를 전송 위한 액션
+function registerComment(comments){//등록된 댓글데이터를 전송 위한 액션
     return{
         type:SET_COMMENT,
-        loggedInUser
+        comments
     }
 }
 
@@ -35,10 +35,10 @@ function logout() {
 }
  */
 
-function setProject(projectId){
+function setProject(project){
     return {
         type : SET_PROJECT,
-        projectId
+        project
     }
 }
 
@@ -67,7 +67,7 @@ function loadFile(){
 
 //
 
-function createComment(projectId, message){ //댓글 데이터 등록
+function createComment(projectId, file, username, message, time){ //댓글 데이터 등록
     return function(dispatch, getState) {
         const { users: { token, loggedInUser }} = getState()
         fetch(`/projects/${projectId}/comments/`, {
@@ -77,7 +77,11 @@ function createComment(projectId, message){ //댓글 데이터 등록
                 Authorization : `JWT ${token}`
             },
             body : JSON.stringify({
-                message
+                projectId, 
+                file, 
+                username, 
+                message, 
+                time
               })
             })
             .then(response => response.json())
@@ -166,9 +170,6 @@ function createProject(file, title, caption, max_member, schedule, tags) {
 // initial state
 
 const initialState = {
-    isLoggedIn: localStorage.getItem("jwt") ? true : false,
-    token : localStorage.getItem("jwt"),
-    username: localStorage.getItem("username")
 }
 
 // reducer
@@ -198,10 +199,10 @@ function applySetFeed(state, action){
 
 //projectId에 댓글도 들어가 이씀
 function applySetProject(state, action) {
-    const { projectId } = action;
+    const { project } = action;
     return {
         ...state,
-        projectId
+        project
     }
 }
 

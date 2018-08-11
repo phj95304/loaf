@@ -2,7 +2,7 @@
   "name": "loaf3",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://172.20.10.10:8000/",
+  "proxy": "http://192.168.43.7:8000/",
   "dependencies": {
     "ajv": "^6.5.2",
     "bootstrap": "^4.1.2",
@@ -10,6 +10,7 @@
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
+    "react-lines-ellipsis": "^0.13.2",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
