@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import h from './h.jpg';
 
 const ProjectDetail =props => {
-  const  {feed, projectId} = props;
+  const  {project, projectId} = props;
 
   return (
     <div >
@@ -19,9 +19,9 @@ const ProjectDetail =props => {
       </div>
 
       <div className="project_title">
-        <p className = "title">feed.projectId.title</p>
+        <p className = "title">{project.title}</p>
         <p className = "count">
-          feed.projectId.member_count/feed.projectId.max_member 명
+          {project.member_count}/{project.max_member} 명
           <span className = "apply_btn"> <Button className = "btn"> <i class="fas fa-angle-right"></i> 지원하기 </Button></span>
         </p>
       </div>
@@ -31,15 +31,15 @@ const ProjectDetail =props => {
         <img src = {h} className = "creator_img" />
         </div>
         <div className = "creator_profile">
-        <p className = "creator_name"><span className = "name">feed.projectId.creator.username </span> 님의 소개  </p>
-        <p className = "creator_univ"> {projectId.creator.school} </p>
-        <p className = "creator_bio"> feed.projectId.creator.bio </p>
+        <p className = "creator_name"><span className = "name">project.creator.username </span> 님의 소개  </p>
+        <p className = "creator_univ"> {project.creator.school} </p>
+        <p className = "creator_bio"> project.projectId.creator.bio </p>
         </div>
       </div>
 
       <div className = "project_body">
         <p className = "intro1">프로젝트 개요</p>
-        <p className = "project_caption"> feed.projectId.caption</p>
+        <p className = "project_caption"> project.projectId.caption</p>
       </div>
 
       <div className = "member">
@@ -51,7 +51,7 @@ const ProjectDetail =props => {
       </div>
       <div className = "interest">
         <p className = "intro3"> <i class="fas fa-tags"></i>프로젝트 태그 
-        <span className = "tags"> &nbsp;  feed.projectId.tags</span></p>
+        <span className = "tags"> &nbsp;  project.projectId.tags</span></p>
         <br/>
       </div>
       <hr/>

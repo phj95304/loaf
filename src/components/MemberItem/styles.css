@@ -1,11 +1,4 @@
-.container{
-  background-image: linear-gradient(
-        rgba(0, 0, 0, 0.5), 
-        rgba(0, 0, 0, 0.5)
-      ), url('./a.jpg');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
+
 .intro1{
   font-size: 2rem;
   color: white;
@@ -17,6 +10,7 @@
   background-color: rgba( 211, 211, 211, 0.8 );
   display: grid; 
   grid-template-columns: 100px 115px 130px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */
 }
 .member_img_history{
   line-height: 0.5%;

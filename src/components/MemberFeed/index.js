@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Container from './container';
-import { actionCreators as projectAction } from '../../redux/modules/projects';
+import { actionCreators as userAction } from '../../redux/modules/users';
 
 const mapStateToProps = (state, ownProps) => {
-    const { projects: { feed } } = state;
+    const { users: { feed } } = state;
     return {
         feed
     }
@@ -12,8 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = ( dispatch, ownProps ) => {
     return {
-        getFeed: () => {
-            dispatch(projectAction.getFeed());
+        getUserFeed: () => {
+            dispatch(userAction.getUserFeed());
         }
     }
 }

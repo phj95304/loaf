@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../Loading/Spinner';
-import ProjectsItem from '../ProjectItem';
+import MemberItem from '../MemberItem';
+import './styles.css';
 
-const Feed = props => {
+const MemberFeed = props => {
     if(props.loading) {
         return <LoadingFeed />
     } else if(props.feed){
@@ -19,18 +20,30 @@ const LoadingFeed = props => (
 
 
 const RenderFeed = props => (
-    <div>
-        <br/>
-      <h1>
-        &nbsp; #프로젝트
-      </h1>
-      <br></br>
-        {props.feed.map(project => <ProjectsItem { ...project} key={project.id} />)} 
+    <div className = "projectfeed_container">
+        <div className = "projectfeed_projects">
+            <br/>
+            <h1>
+                &nbsp; # 멤버들 
+            </h1>
+            <br></br>
+            {props.feed.map(member => <MemberItem { ...member} key={member.id} />)} 
+        </div>
+
+        <div className = "projectfeed_recomprojects">
+            <br/>
+            <p className = "projectfeed_recomprojects_title">
+                &nbsp; # 추천 멤버 
+            </p>
+            
+        </div>
     </div>
+
+    
 )
 
-Feed.propTypes = {
+MemberFeed.propTypes = {
     loading: PropTypes.bool.isRequired
 };
 
-export default Feed;
+export default MemberFeed;

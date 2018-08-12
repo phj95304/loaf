@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ProjectFeed from './presenter';
+import MemberFeed from './presenter';
 
 class Container extends Component {
     state= {
@@ -19,9 +19,9 @@ class Container extends Component {
     }
     
     componentDidMount(){
-        const { getFeed } = this.props;
+        const { getUserFeed } = this.props;
         if(!this.props.feed){
-            getFeed();
+            getUserFeed();
         } else {
             this.setState({
                 loading:false
@@ -31,7 +31,7 @@ class Container extends Component {
 
     render() {
         const { feed } = this.props;
-        return <ProjectFeed {...this.state}  feed={feed} />
+        return <MemberFeed {...this.state}  feed={feed} />
     }
 }
 

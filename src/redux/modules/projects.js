@@ -1,101 +1,68 @@
+// imports
+
 import { actionCreators as userActions } from "redux/modules/users";
+import uuidv1 from 'uuid/v1';
 
 // actions
-//const LOGOUT = "LOGOUT";
+
 const SET_FEED = "SET_FEED";
 const SET_PROJECT = "SET_PROJECT";
-const REGISTER_PROJECT = "REGISTER_PROJECT";
-const SAVE_TOKEN = "SAVE_TOKEN";
-//const LOAD_FILE = "LOAD_FILE";
-const SET_COMMENT = "SET_COMMENT";//action을 정의할때 쓸 변수
-
+const ADD_COMMENT = "ADD_COMMENT";
 
 // action creators
 
-//comment함수를 만들다
-
-function registerComment(comments){//등록된 댓글데이터를 전송 위한 액션
-    return{
-        type:SET_COMMENT,
-        comments
-    }
-}
-
-function setFeed(feed) {
+function setFeed(feed){
     return {
         type: SET_FEED,
         feed
-    }
+    };
 }
-/**
-function logout() {
-    return {
-      type: LOGOUT
-    }
-}
- */
 
-function setProject(project){
+function setProject(projectId){
     return {
         type : SET_PROJECT,
-        project
+        projectId
     }
 }
 
-function saveToken(token) {
+function addComment(photoId, comment){
     return {
-      type : SAVE_TOKEN,
-      token : token
-    }
+        type: ADD_COMMENT,
+        photoId,
+        comment
+    };
+}
+
+function commentProject(projectId, message) {
+    return (dispatch, getState) => {
+      const { user: { token } } = getState();
+      fetch(`/projects/${projectId}/comments/`, {
+        method: "POST",
+        headers: {
+          Authorization: `JWT ${token}`,
+          "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+          message
+        })
+      }).then(response => {
+        if (response.status === 401) {
+          dispatch(userActions.logout());
+        }
+        return response.json()
+      })
+      .then(json => {
+          if(json.message){
+              dispatch(addComment(projectId, json))
+          }
+      })
+    };
   }
 
-function registerProject(loggedInUser){
-    return {
-        type: REGISTER_PROJECT,
-        loggedInUser
-    }
-}
-/*
-function loadFile(){
-    return {
 
-        
-    }
-}
-*/
 // api actions
 
-//
-
-function createComment(projectId, file, username, message, time){ //댓글 데이터 등록
-    return function(dispatch, getState) {
-        const { users: { token, loggedInUser }} = getState()
-        fetch(`/projects/${projectId}/comments/`, {
-            method: "POST",
-            headers: {
-                "Content-Type":"application/json",
-                Authorization : `JWT ${token}`
-            },
-            body : JSON.stringify({
-                projectId, 
-                file, 
-                username, 
-                message, 
-                time
-              })
-            })
-            .then(response => response.json())
-            .then(json => {
-              if(json.token) {
-                dispatch(saveToken(json.token));
-                dispatch(registerComment(loggedInUser));
-              }
-            })
-            .catch(err => console.log(err));
-          };
-}
-
-function getFeed(){
+function getFeed(){//전체 프로젝트 가져오기
     return (dispatch, getState) => {
         const { users : { token } } = getState();
         fetch("/projects/", {
@@ -114,7 +81,7 @@ function getFeed(){
     }
 }
 
-function getProject(projectId){//projectDstail가져오기
+function getProject(projectId){
     return (dispatch, getState) => {
         const { users : { token }} = getState();
         fetch(`/projects/${projectId}/`, {
@@ -128,48 +95,48 @@ function getProject(projectId){//projectDstail가져오기
             }
             return response.json();
         })
-        .then(json => dispatch(setProject(json)));
+        .then(json => dispatch(setProject(projectId, json)));
     };
 };
 
 
+function createProject(file, title, caption, max_member, schedule,  tags){
+    const tagsArray = tags.split(",");
+    const data = new FormData();
+    data.append("file", {
+        uri: file,
+        type: "image/jpg",
+        name: `${uuidv1()}.jpg`
+    });
+    data.append("title", title);
+    data.append("caption", caption);
+    data.append("max_member", max_member);
+    data.append("schedule", schedule);
+    data.append("tags", JSON.stringify(tagsArray));
 
-function createProject(file, title, caption, max_member, schedule, tags) {
-    return function(dispatch, getState) {
-        const { users: { token, loggedInUser }} = getState()
-        fetch(`/projects/`, {
-            method: "POST",
-            headers: {
-                "Content-Type":"application/json",
-                Authorization : `JWT ${token}`
-            },
-            body : JSON.stringify({
-                file, 
-                title,
-                caption,
-                max_member, 
-                schedule,
-                tags
-              })
-            })
-            .then(response => response.json())
-            .then(json => {
-              if(json.token) {
-                dispatch(saveToken(json.token));
-                dispatch(registerProject(loggedInUser));
-              }
-            })
-            .catch(err => console.log(err));
-          };
-}
-      
-
-
-
+    return (dispatch, getState) => {
+      const { users: { token } } = getState();
+      fetch("/projects/", {
+        method: "POST",
+        headers: {
+          Authorization: `JWT ${token}`,
+          "Content-Type" : "multipart/form-data"
+        },
+        body : data
+      })
+      .then(response => {
+        if(response.status === 401) {
+          dispatch(userActions.logout());
+        } 
+      })
+      .catch(err => console.log(err));
+    }
+  }
 
 // initial state
 
 const initialState = {
+
 }
 
 // reducer
@@ -180,16 +147,31 @@ function reducer(state= initialState, action) {
             return applySetFeed(state, action);
         case SET_PROJECT:
             return applySetProject(state, action);
-        case SAVE_TOKEN:
-            return applySetToken(state, action);
+        case ADD_COMMENT:
+            return applyAddComment(state, action);
         default:
             return state;
     }
 }
+function applyAddComment(state, action){
+    const { projectId, comment } = action;
+    const { feed } = state;
+    const updatedFeed = feed.map(project => {
+      if (project.id === projectId) {
+        return {
+             ...project,
+             comments : [...project.comments, comment]
+        };
+      }
+      return project;
+    });
+    return { ...state, feed: updatedFeed };
+}
 
-// reducer functions 스테이트 정의
 
-function applySetFeed(state, action){
+// reducer functions
+
+function applySetFeed(state, action) {
     const { feed } = action;
     return {
         ...state,
@@ -197,24 +179,20 @@ function applySetFeed(state, action){
     }
 }
 
-//projectId에 댓글도 들어가 이씀
 function applySetProject(state, action) {
-    const { project } = action;
-    return {
-        ...state,
-        project
-    }
+    const { projectId } = action;
+    const { feed } = state;
+    const selectedFeed = feed.map(project => {
+        if(project.id === projectId) {
+            return {
+                ...project,
+            };
+        };
+        return project;
+    });
+    return { ...state, feed: selectedFeed};
 }
 
-function applySetToken(state, action) {
-    const { token } = action;
-    localStorage.setItem("jwt", token);
-    return {
-        state,
-      isLoggedIn : true,
-      token
-    }
-  }
 
 // exports
 
@@ -222,8 +200,7 @@ const actionCreators = {
     getFeed,
     getProject,
     createProject,
-    createComment
-    
+    commentProject
 }
 
 export { actionCreators };

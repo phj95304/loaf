@@ -5,9 +5,17 @@ const SAVE_TOKEN = "SAVE_TOKEN";
 const LOGOUT = "LOGOUT";
 const SET_PROFILE = "SET_PROFILE";
 const SET_USERNAME = "SET_USERNAME";
+const SET_USERFEED = "SET_USERFEED";
 
 
 //action creators
+function setUserFeed(feed){
+    return {
+      type: SET_USERFEED,
+      feed
+    };
+}
+
 function saveToken(token) {
   return {
     type : SAVE_TOKEN,
@@ -37,6 +45,24 @@ function setUsername(username) {
 
 //API actions
 
+function getUserFeed(){//전체 프로젝트 가져오기
+  return (dispatch, getState) => {
+      const { users : { token } } = getState();
+      fetch("/users/explore/", {
+          method: "GET",
+          headers: {
+              "Authorization" : `JWT ${token}`
+          }
+      })
+      .then(response => {
+          if(response.status === 401){
+              dispatch(logout());
+          }
+          return response.json();
+      })
+      .then(json => dispatch(setUserFeed(json)))
+  }
+}
 
 function facebookLogin(access_token) {
     return dispatch => {
@@ -149,13 +175,23 @@ function reducer(state = initialState, action) {
         case SET_PROFILE:
           return applySetProfile(state, action); 
         case SET_USERNAME:
-          return applySetUsername(state, action);    
+          return applySetUsername(state, action);  
+        case SET_USERFEED:
+          return applySetUserFeed(state,action);
         default: 
           return state;
     }
 }
 
 //reducer functions
+
+function applySetUserFeed(state, action){
+      const { feed } = action;
+      return {
+          ...state,
+          feed
+      }
+}
 
 function applySetToken(state, action) {
   const { token } = action;
@@ -200,7 +236,8 @@ const actionCreators = {
     createAccount,
     logout,
     getProfile,
-    setUsername
+    setUsername,
+    getUserFeed
 };
 
 

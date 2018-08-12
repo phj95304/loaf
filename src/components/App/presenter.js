@@ -10,6 +10,7 @@ import Auth from '../Auth';
 import ProjectFeed from '../ProjectFeed';
 import ProjectDetail from '../projectDetails';
 import ScoreForm from '../ScoreForm/presenter';
+import MemberFeed from '../MemberFeed';
 
 const App = props => [
   // Nav, props.isLoggedIn ? <Navbar key={1}/> : null,
@@ -23,16 +24,18 @@ App.propTypes = {
 const PrivateRoutes = props => (
   <Switch>
     <Route exact path="/" component={Landing}/>
-    <Route exact path="/projects" component={ProjectFeed}/>
-    <Route exact path="/projects/:id" component={ProjectDetail}/>
+    
     <Route exact path="/score" component={ScoreForm}/>
+    <Route exact path="/members" component={MemberFeed}/>
   </Switch>
 );
 
 const PublicRoutes = props => (
   <Switch>
     <Route exact path="/" component={Auth}/>
-    
+    <Route exact path="/projects" component={ProjectFeed}/>
+    <Route exact path="/projects/:id" component={ProjectDetail}/>
+    <Route exact path="/members" component={MemberFeed}/>
   </Switch>
 );
 export default App;
