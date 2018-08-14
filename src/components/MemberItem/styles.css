@@ -9,7 +9,7 @@
   width: 350px;
   height: 160px;
   margin-left: 5%;
-  background-color: rgba( 211, 211, 211, 0.8 );
+  background-color: #f3f3ef;
   display: grid;
   grid-template-rows: 20% 45% 15% 20%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */

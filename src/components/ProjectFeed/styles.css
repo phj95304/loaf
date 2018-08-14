@@ -1,6 +1,13 @@
 .projectfeed_container{
     display: grid;
     grid-template-columns: 65% 35%;    
+
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5), 
+        rgba(0, 0, 0, 0.5)
+      ), url('../../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
   .projectfeed_intro1{
     margin-left: 10%;
