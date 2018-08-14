@@ -8,7 +8,7 @@ import Footer from '../Footer';
 import Landing from '../Landing';
 import Auth from '../Auth';
 import ProjectFeed from '../ProjectFeed';
-import ProjectDetail from '../projectDetails';
+import ProjectDetail from '../projectDetails/ex3';
 import ScoreForm from '../ScoreForm/presenter';
 import MemberFeed from '../MemberFeed';
 

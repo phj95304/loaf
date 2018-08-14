@@ -15,4 +15,8 @@
     font-weight: bold;
     margin-left: 18%;
   }
+  .member_container{
+    display: grid;
+    grid-template-columns: 50% 50%; 
+   }
   

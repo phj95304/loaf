@@ -27,7 +27,9 @@ const RenderFeed = props => (
                 &nbsp; # 친구 보기 
             </p>
             <br></br>
-            {props.feed.map(member => <MemberItem { ...member} key={member.id} />)} 
+            <div className = "member_container">
+            {props.feed.map(member => <MemberItem { ...member} key={member.id} />)}
+            </div> 
         </div>
 
         <div className = "memberfeed_recommembers">

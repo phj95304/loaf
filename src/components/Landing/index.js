@@ -14,23 +14,22 @@ const Landing = (props) => {
           <CardTitle className = "page1_title">대학생 프로젝트 커뮤니티 LOAF <br/>
           생각만 하던 프로젝트, 이제는 실현시켜 보자.</CardTitle>
           <br/><br/>
-          <CardText className = "page1_text"><i class="fas fa-check"></i> LOAF의 의미는 중의적이다.</CardText>
-          <CardText className = "page1_text"><i class="fas fa-check"></i> LOAF는 빵 덩어리에 불과 할 수도 있지만</CardText>
-          <CardText className = "page1_text"><i class="fas fa-check"></i> 많은 이에게 꿈과 희망을 줄 수 있다.</CardText>
+          <CardText className = "page1_text"> LOAF는 대학생의 프로젝트 커뮤니티 플랫폼입니다.</CardText>
+          <CardText className = "page1_text"> 다양한 프로젝트를 실행하고 성장해가고 싶다면</CardText>
+          <CardText className = "page1_text"> &nbsp;&nbsp;&nbsp;&nbsp; Loaf와 함께 시작해 보세요.</CardText>
           <br/><br/> <br/>
         </CardBody>
         
         <CardBody className = "page2">
           <br/>
-          <CardTitle className = "page2_title">프로젝트 보기  
+          <CardTitle className = "page2_title">프로젝트 
           <span className = "page2_btn_m">
           <Button className = "page2_btn"><i class="fas fa-external-link-alt"></i>&nbsp;바로가기</Button>
           </span>
           </CardTitle>
           <br/>
-          <CardText className = "page2_text"><i class="fas fa-check"></i> LOAF의 의미는 중의적이다.</CardText>
-          <CardText className = "page2_text"><i class="fas fa-check"></i> LOAF는 빵 덩어리에 불과 할 수도 있지만</CardText>
-          <CardText className = "page2_text"><i class="fas fa-check"></i> 많은 이에게 꿈과 희망을 줄 수 있다.</CardText>
+          <CardText className = "page2_text"> 생각만 하던 프로젝트를 올려 다양한 사람들과 함께할 수 있습니다.</CardText>
+          <CardText className = "page2_text"> 당신이 하고 싶은 프로젝트를 추천받아 보세요. </CardText>
           
           <br/><br/>
         </CardBody>
@@ -46,9 +45,9 @@ const Landing = (props) => {
           
           </CardTitle>
           <br/>
-          <CardText className = "page3_text"><i class="fas fa-check"></i> LOAF의 의미는 중의적이다.</CardText>
-          <CardText className = "page3_text"><i class="fas fa-check"></i> LOAF는 빵 덩어리에 불과 할 수도 있지만</CardText>
-          <CardText className = "page3_text"><i class="fas fa-check"></i> 많은 이에게 꿈과 희망을 줄 수 있다.</CardText>
+          <CardText className = "page3_text">관심사가 유사한 친구를 추천받을 수 있습니다.</CardText>
+          <CardText className = "page3_text"> 당신과 함께 프로젝트를 진행하고 싶다면,</CardText>
+          <CardText className = "page3_text"> &nbsp;&nbsp;&nbsp;&nbsp;Loaf에서 친구를 찾아보세요.</CardText>
           
           <br/><br/>
         </CardBody>
