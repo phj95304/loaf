@@ -1,6 +1,6 @@
 .memberfeed_container{
     display: grid;
-    grid-template-columns: 65% 35%;    
+    grid-template-columns: 70% 30%;    
   }
   .memberfeed_intro1{
     font-size: 2.5rem;
@@ -16,7 +16,8 @@
     margin-left: 18%;
   }
   .member_container{
+    margin-left: 5%;
     display: grid;
-    grid-template-columns: 50% 50%; 
+    grid-template-columns: 45% 45%; 
    }
   

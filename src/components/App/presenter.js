@@ -10,7 +10,7 @@ import Auth from '../Auth';
 import ProjectFeed from '../ProjectFeed';
 import ProjectDetail from '../projectDetails/ex3';
 import ScoreForm from '../ScoreForm/presenter';
-import MemberFeed from '../MemberFeed';
+import MemberFeed from '../MemberFeed/ex1';
 
 const App = props => [
   // Nav, props.isLoggedIn ? <Navbar key={1}/> : null,
