@@ -2,12 +2,18 @@
     display: grid;
     grid-template-columns: 65% 35%;    
   }
+  .projectfeed_intro1{
+    margin-left: 10%;
+    font-size: 3rem;
+    font-weight: bold;
+  }
   .projectfeed_recomprojects{
     margin-top: 20%;
   }
  
   .projectfeed_recomprojects_title{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin-left: 12%;
+    margin-left: 18%;
   }
+  

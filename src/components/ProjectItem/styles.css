@@ -3,7 +3,7 @@
   height: 20%;
   margin-left: 15%;
   margin-right: 5%;
-  background-color: rgba( 211, 211, 211, 0.8 );
+  background-color: #f3f3ef;
   display: grid;
   grid-template-rows: 20px 50px 180px 80px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */
@@ -20,24 +20,26 @@
 }
 .project_summary{
   display: grid;
-  grid-template-columns: 50px 190px 100px;
+  grid-template-columns: 10% 60% 30%;
 }
 .projectItem_creator_img{
-  width: 43px;
+  width: 90%;
   height: 43px;
   margin-left: 7%;
   margin-top: 10%;
   border-radius: 50%;
+  border: 5px black;
 }
 .projectItem_title{
-  margin-top: 7%;
-  margin-left: 5%;
-  font-size: 0.8rem;
+  margin-top: 4%;
+  margin-left: 2%;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 .max_member{
-  margin-top: 13%;
-  margin-left: 5%;
-  font-size: 0.8rem;
+  margin-top: 10%;
+  font-weight: bold;
+  font-size: 1rem;
 }
 .projectItem_caption{
   margin-top: 5%;

@@ -1,44 +1,53 @@
+.recom_projectItem_container{
+  background-color: lightgray;
+ margin-left: 5%;
+  margin-right: 25%;
+  border-radius: 5%
+}
 .recom_project_card{
-  width: 300px;
-  height: 200px;
-  margin-left: 15%;
-  margin-right: 5%;
-  background-color: rgba( 211, 211, 211, 0.8 );
+  width: 280px;
+  height: 150px;
+ 
+  margin-left: 8%;
+  margin-bottom: 1%;
+  background-color: #f3f3ef;
   display: grid;
-  grid-template-rows: 15px 35px 100px 50px;
+  grid-template-rows: 30px 90px 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */
 }
 .recom_projectItem_img{
   width: 100%;
   height: 100%;
 }
-.recom_projectItem_intro1{
-  text-align: right;
-  font-size: 0.6rem;
-  margin-top: 0%; 
-  margin-right: 2%;
-}
+
 .recom_project_summary{
   display: grid;
-  grid-template-columns: 10% 63% 27%;
+  grid-template-columns: 20% 23% 30% 25%;
 }
 .recom_projectItem_creator_img{
-  width: 33px;
-  height: 28px;
-  margin-left: 10%;
+  width:75%;
+  height: 25px;
+  margin-left: 5%;
   border-radius: 50%;
 }
 .recom_projectItem_title{
-  margin-top: 1.5%;
+  margin-top: 2%;
   margin-left: 5%;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 .recom_max_member{
+  margin-top: 7%;
+  font-size: 0.8rem;
+  
+}
+.recom_region{
   margin-top: 5%;
   font-size: 0.8rem;
   
 }
-.recom_projectItem_caption{
-  margin-top: 5%;
+.recom_projectItem_intro1{
+  text-align: right;
+  font-size: 0.6rem;
+  margin-top: 0%; 
 }

@@ -20,20 +20,20 @@ const LoadingFeed = props => (
 
 
 const RenderFeed = props => (
-    <div className = "projectfeed_container">
-        <div className = "projectfeed_projects">
+    <div className = "memberfeed_container">
+        <div className = "memberfeed_projects">
             <br/>
-            <h1>
-                &nbsp; # 멤버들 
-            </h1>
+            <p className = "memberfeed_intro1">
+                &nbsp; # 친구 보기 
+            </p>
             <br></br>
             {props.feed.map(member => <MemberItem { ...member} key={member.id} />)} 
         </div>
 
-        <div className = "projectfeed_recomprojects">
+        <div className = "memberfeed_recommembers">
             <br/>
-            <p className = "projectfeed_recomprojects_title">
-                &nbsp; # 추천 멤버 
+            <p className = "memberfeed_recommembers_title">
+                &nbsp; # 추천 친구 
             </p>
             
         </div>

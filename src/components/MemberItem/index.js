@@ -1,45 +1,65 @@
 import React from 'react';
 import './styles.css';
-import img from './as.jpg'; 
 import PropTypes from 'prop-types';
 import { Card} from 'reactstrap';
 
-const MemberItem = (props) => {
+
+
+
+  const MemberItem = (props) => (
   
-  return (
-   
     <div className="container">
-    <Card className="recommend_project_card">
-      <div className = "member_img_history">
-        <img 
-          className = "member_img"
-          src = {props.profile_image}
-          alt = "hi"
-        />
-        <p className = "on_project"><i class="far fa-lightbulb"></i> :1 <span className = "last_project"><i class="fas fa-lightbulb"></i> :4 </span></p> 
+
+    <Card className="member_card">
+    <div className = "member_card_row1">
+    <p className = "member_intro0"> Member <i class="fas fa-bookmark"></i> </p>
+    </div>
+
+    <div className = "member_card_row2">
+    <div className = "member_container"> 
+      
+    <div className = "member_img_history">
+      <img className = "member_img" src = {props.profile_image || require('../../img/raw_img.jpg')} alt = "hi33333" />
       </div>
 
       <div className = "member_prop"> 
-        <p className = "member_name"> {props.username} </p>
-        <p className = "member_univ">{props.school} </p>
-        <p className = "member_residence"> {props.address} </p> 
-        <button className = "go_to_profile"><i class="fas fa-caret-right"></i> 프로필</button>
+        <p className = "member_name"> <i class="fas fa-user"></i>&nbsp;{props.username} </p>
+        <p className = "member_univ"><i class="fas fa-graduation-cap"></i>{props.school} </p>
+        <p className = "member_residence"><i class="fas fa-map-marker-alt"></i> 수도권 </p> 
+       
       </div>
 
-      <div className = "tag_prop">
-        <div>
-        <p className = "intro2"> 관심사 </p>
-        </div>
-        <div className = "tags">
-        {/*{props.tags.map(tag => <p className = "tag" {...tag} key = {})}*/}
-        <p className = "tag"/>
-        </div>
-      </div>
+     <div className = "project_history">
+        <p className = "on_project"><i class="far fa-lightbulb"></i>진행중 :1 </p>
+        <p className = "last_project"><i class="fas fa-lightbulb"></i> 완료 :4 </p>
+        <button className = "go_to_profile"><i class="fas fa-caret-right"></i> 프로필</button>
+    </div>
+    </div>
+</div>
+<div className = "member_card_row3">
+       
+            <div></div>
+            <div>
+            <p className = "member_intro2"> <i class="fab fa-slack"></i> 관련태그 </p>
+            </div>
+            {/*{props.tags.map(tag => <p className = "tag" {...tag} key = {})}*/}
+            <div>
+              <p className = "tag"> # JAVA</p>
+            </div>
+            <div>
+              <p className = "tag"> # React.js</p>
+            </div>
+            <div>
+              <p className = "tag"> # HTML5</p>
+            </div>
+
+      
+   </div>
     </Card>
     <br/>
 </div>
-  );
-}
+);
+
 MemberItem.propsTypes = {
   profile_image:PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,

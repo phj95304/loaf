@@ -1,14 +1,14 @@
 import React from 'react';
-import { Card, Button, CardFooter, CardBody,
-  CardTitle, CardText} from 'reactstrap';
-import './Landing.css'
+import { Card, CardBody,
+  CardTitle, CardText,Button} from 'reactstrap';
+import './landing.css'
 
 
 const Landing = (props) => {
     return(
       <div>
-
       <Card>
+        
         <CardBody className = "page1">
           <br/><br/><br/>
           <CardTitle className = "page1_title">대학생 프로젝트 커뮤니티 LOAF <br/>
@@ -20,28 +20,36 @@ const Landing = (props) => {
           <br/><br/> <br/>
         </CardBody>
         
-        <CardFooter body inverse style={{ backgroundColor: '#c4abc9', borderColor: '#c4abc9' }}>
+        <CardBody className = "page2">
           <br/>
-          <CardTitle className = "page2_title">프로젝트 보기  </CardTitle>
+          <CardTitle className = "page2_title">프로젝트 보기  
+          <span className = "page2_btn_m">
+          <Button className = "page2_btn"><i class="fas fa-external-link-alt"></i>&nbsp;바로가기</Button>
+          </span>
+          </CardTitle>
           <br/>
           <CardText className = "page2_text"><i class="fas fa-check"></i> LOAF의 의미는 중의적이다.</CardText>
           <CardText className = "page2_text"><i class="fas fa-check"></i> LOAF는 빵 덩어리에 불과 할 수도 있지만</CardText>
           <CardText className = "page2_text"><i class="fas fa-check"></i> 많은 이에게 꿈과 희망을 줄 수 있다.</CardText>
-          <Button className = "page2_btn">바로가기</Button>
+          
           <br/><br/>
-        </CardFooter>
+        </CardBody>
 
       </Card>
 
       <Card>
         <CardBody className = "page3">
           <br/>
-          <CardTitle className = "page3_title">친구 찾기</CardTitle>
+          <CardTitle className = "page3_title">
+          <Button className = "page3_btn"><i class="fas fa-external-link-alt"></i>&nbsp;바로가기</Button>
+          친구 찾기
+          
+          </CardTitle>
           <br/>
           <CardText className = "page3_text"><i class="fas fa-check"></i> LOAF의 의미는 중의적이다.</CardText>
           <CardText className = "page3_text"><i class="fas fa-check"></i> LOAF는 빵 덩어리에 불과 할 수도 있지만</CardText>
           <CardText className = "page3_text"><i class="fas fa-check"></i> 많은 이에게 꿈과 희망을 줄 수 있다.</CardText>
-          <Button className = "page3_btn">바로가기</Button>
+          
           <br/><br/>
         </CardBody>
       </Card>

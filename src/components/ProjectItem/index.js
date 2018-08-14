@@ -11,7 +11,7 @@ const ProjectsItem = (props) => {
         
         <Card className = "project_card">
             <div className = "header">
-            <p className = "projectItem_intro1">Project</p>
+            <p className = "projectItem_intro1">Project&nbsp; <i class="fas fa-bookmark"></i></p>
             </div>
             <div className = "project_summary">
                 <div>
@@ -22,12 +22,12 @@ const ProjectsItem = (props) => {
                     />
                 </div>
                 <div className = "project_title">
-                    <p className = "projectItem_title"> {props.title} </p>
+                    <p className = "projectItem_title"> <i class="fas fa-caret-right"></i>&nbsp;{props.title} </p>
                 </div>
 
                 <div className = "projectItem_project_prop">
-                    <p className = "max_member"> {props.member_count}/{props.max_member}명
-                    <span className = "region"> {props.creator.address} </span> 
+                    <p className = "max_member"> <i class="fas fa-user-circle"></i>&nbsp;{props.member_count}/{props.max_member}명
+                    <span className = "region"><i class="fas fa-map-marker-alt"></i> {props.creator.address} </span> 
                     </p>
                 </div>
 

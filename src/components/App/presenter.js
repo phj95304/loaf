@@ -24,18 +24,17 @@ App.propTypes = {
 const PrivateRoutes = props => (
   <Switch>
     <Route exact path="/" component={Landing}/>
-    
-    <Route exact path="/score" component={ScoreForm}/>
     <Route exact path="/members" component={MemberFeed}/>
+    <Route exact path="/projects" component={ProjectFeed}/>
+    <Route exact path="/projects/projectdetail" component={ProjectDetail}/>
+    <Route exact path="/score" component={ScoreForm}/>
+    
   </Switch>
 );
 
 const PublicRoutes = props => (
   <Switch>
     <Route exact path="/" component={Auth}/>
-    <Route exact path="/projects" component={ProjectFeed}/>
-    <Route exact path="/projects/:id" component={ProjectDetail}/>
-    <Route exact path="/members" component={MemberFeed}/>
   </Switch>
 );
 export default App;

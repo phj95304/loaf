@@ -10,30 +10,41 @@
 .page1_title{
     font-size: 50px;
     color: white;
-    text-align: left;
-    padding-left: 30%;
+    text-align: right;
+    padding-right: 10%;
 }
 .page1_text{
     font-size: 30px;
     color: white;
-    text-align: left;
-    padding-left: 35%;
+    text-align: right;
+    padding-right: 10%;
 }
-
+.page2{
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0), 
+        rgba(0, 0, 0, 0)
+      ), url('./page2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 .page2_title{
-    font-size: 50px;
+    font-size: 3rem;
     color: rgb(41, 39, 39);
     text-align: left;
-    padding-left: 5%;
+    padding-left: 10%;
+}
+.page2_btn_m{
+    margin-top: 1%;
 }
 .page2_btn{
-    margin-left: 5%;
+    margin-left: 1%;
+    
 }
 .page2_text{
-    font-size: 15px;
+    font-size: 1.5rem;
     color: rgb(41, 39, 39);
     text-align: left;
-    padding-left: 5%;
+    padding-left: 10%;
 }
 .page3{
     background-image:  url('./page5.jpg');
@@ -41,19 +52,20 @@
     background-size: 100% 100%;
 }
 .page3_title{
-    font-size: 50px;
+    font-size: 3.3rem;
     color: white;
-    text-align: left;
-    padding-left: 60%;
+    text-align: right;
+    padding-right: 10%;
 }
 .page3_btn{
-    margin-left: 60%;
+   
+    
 }
 .page3_text{
-    font-size: 15px;
+    font-size: 1.5rem;
     color:white;
-    text-align: left;
-    padding-left: 60%;
+    text-align: right;
+    padding-right: 10%;
 }
 .page4{
     background-image: url('./page6.jpg');
