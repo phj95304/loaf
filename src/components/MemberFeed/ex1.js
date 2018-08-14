@@ -29,12 +29,7 @@ const MemberFeed = props => (
             <p className = "memberfeed_recommembers_title">
                 &nbsp; # 추천 친구 
             </p>
-            <br></br>
-            <div className = "recom_member_container">
                 <RecomMemberItem/>
-                <RecomMemberItem/>
-                <RecomMemberItem/>
-            </div> 
         </div>
     </div>
     

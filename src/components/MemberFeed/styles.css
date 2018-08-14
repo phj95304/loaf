@@ -6,6 +6,12 @@
     font-size: 2.5rem;
     font-weight: bold;
   }
+  .member_container{
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: 45% 45%; 
+   }
+
   .memberfeed_recommembers{
     margin-top: 20%;
   }
@@ -13,11 +19,5 @@
   .memberfeed_recommembers_title{
     font-size: 1.5rem;
     font-weight: bold;
-    margin-left: 18%;
+    margin-left: 15%;
   }
-  .member_container{
-    margin-left: 5%;
-    display: grid;
-    grid-template-columns: 45% 45%; 
-   }
-  

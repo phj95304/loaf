@@ -1,7 +1,15 @@
+.recom_memberitem_container{
+    background-color: lightgray;
+    margin-left: 10%;
+     margin-right: 40%;
+     border-radius: 5%
+}
 .recom_member_card1{
     width: 170px;
     height: 150px;
-    margin-left: 5%;
+
+    margin-left: 8%;
+    margin-bottom: 2%;
     background-color: rgba( 211, 211, 211, 0.8 );
     display: grid;
     grid-template-rows: 20% 45% 15% 20%;
@@ -9,23 +17,27 @@
 }
 .recom_member_intro1{
     text-align: right;
+    font-size: 0.7rem;
     margin-right: 2%;
 }
 .recom_user_profile_img{
-    width: 80%;
-    height: 80%;
+    width: 70%;
+    height: 100%;
     border-radius: 50%;
+    margin-left: 15%;
 }
 .recom_member_intro2{
-    margin-top:12%;
-    font-size: 0.7rem;
+    margin-top:5%;
+    margin-left: 5%;
+    font-size: 0.8rem;
 }
 .recom_hia{
     display: grid;
-    grid-template-columns: 15% 15% 15%;
+    grid-template-columns:  10% 30% 30% 30%;
   }
   
   .recom_tag{
     margin-top:12%;
+   
     font-size: 0.7rem;
   }
