@@ -4,6 +4,10 @@
      margin-right: 40%;
      border-radius: 5%
 }
+.recom_member_card1:hover{
+    background-color: #d8d8d8;
+  color:black;
+  }
 .recom_member_card1{
     width: 170px;
     height: 150px;

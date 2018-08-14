@@ -5,6 +5,10 @@
   border-radius: 5%
 }
 .recom_project_card{
+  background-color: #d8d8d8;
+  color:black;
+}
+.recom_project_card{
   width: 280px;
   height: 150px;
  

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Loading from '../Loading/Spinner';
 import MemberItem from '../MemberItem';
 import './styles.css';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 const MemberFeed = props => {
     if(props.loading) {
@@ -28,7 +29,7 @@ const RenderFeed = props => (
             </p>
             <br></br>
             <div className = "member_container">
-            {props.feed.map(member => <MemberItem { ...member} key={member.id} />)}
+                {props.feed.map(member => <MemberItem { ...member} key={member.id} />)}
             </div> 
         </div>
 
@@ -37,7 +38,9 @@ const RenderFeed = props => (
             <p className = "memberfeed_recommembers_title">
                 &nbsp; # 추천 친구 
             </p>
-            
+            <div className = "memberfeed_recommember_container">
+                {props.feed.map(member => <RecomMemberItem { ...member} key={member.id} />)}
+            </div> 
         </div>
     </div>
 

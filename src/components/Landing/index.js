@@ -17,6 +17,7 @@ const Landing = (props) => {
           <CardText className = "page1_text"> LOAF는 대학생의 프로젝트 커뮤니티 플랫폼입니다.</CardText>
           <CardText className = "page1_text"> 다양한 프로젝트를 실행하고 성장해가고 싶다면</CardText>
           <CardText className = "page1_text"> &nbsp;&nbsp;&nbsp;&nbsp; Loaf와 함께 시작해 보세요.</CardText>
+          <button className = "page1_goto_profile"> <i class="fas fa-arrow-right"></i>&nbsp;  프로필 작성하러 가기 </button> 
           <br/><br/> <br/>
         </CardBody>
         

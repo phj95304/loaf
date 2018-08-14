@@ -55,6 +55,7 @@ const ProjectDetail =props => {
         <br/>
       </div>
       <hr/>
+      
       <br/><br/>
     </Card>
     <br/>

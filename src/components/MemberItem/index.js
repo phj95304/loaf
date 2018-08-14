@@ -4,12 +4,9 @@ import PropTypes from 'prop-types';
 import { Card} from 'reactstrap';
 
 
-
-
   const MemberItem = (props) => (
   
     <div className="member_container">
-
     <div>
       <Card className="member_card">
       <div className = "member_card_row1">

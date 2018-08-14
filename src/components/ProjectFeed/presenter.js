@@ -4,6 +4,8 @@ import Loading from '../Loading/Spinner';
 import ProjectsItem from '../ProjectItem';
 import RecomProjects from '../RecomProject';
 import './styles.css';
+import { StickyContainer, Sticky } from 'react-sticky';
+
 
 const Feed = props => {
     if(props.loading) {
@@ -31,13 +33,17 @@ const RenderFeed = props => (
             {props.feed.map(project => <ProjectsItem { ...project} key={project.id} />)} 
         </div>
 
+        <StickyContainer>
+        <Sticky bottomOffset={2} topOffset={1}>{({ style }) =>
         <div className = "projectfeed_recomprojects">
             <br/>
             <p className = "projectfeed_recomprojects_title">
                 &nbsp; # 추천 프로젝트 
             </p>
             <RecomProjects/>
-        </div>
+        </div>}
+        </Sticky>
+        </StickyContainer>
     </div>
 
     

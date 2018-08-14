@@ -2,6 +2,7 @@ import React from 'react';
 import './styles.css';
 import { Card} from 'reactstrap';
 import img3 from '../../img/raw_img.jpg'
+import { StickyContainer, Sticky } from 'react-sticky';
 
 const RecomMemberItem = props => {
     return (

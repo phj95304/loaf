@@ -4,6 +4,7 @@ import Loading from '../Loading/Spinner';
 import MemberItem from '../MemberItem/ex2';
 import RecomMemberItem from '../RecomMemberItem';
 import './styles.css';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 const MemberFeed = props => (
     
@@ -21,18 +22,43 @@ const MemberFeed = props => (
             <MemberItem/>
             <MemberItem/>
             <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
+            <MemberItem/>
             </div> 
         </div>
-
-        <div className = "memberfeed_recommembers">
+        
+        <StickyContainer>
+        <Sticky bottomOffset={20} topOffset={10}>{({ style }) =>
+        <div className = "memberfeed_recommembers" style={{ overflowY: 'auto' }}>
             <br/>
             <p className = "memberfeed_recommembers_title">
                 &nbsp; # 추천 친구 
             </p>
+            <br></br>
+            <div className = "recom_member_container">
                 <RecomMemberItem/>
-        </div>
+            </div> 
+        </div>}
+        </Sticky>
+        </StickyContainer>
+
+    
     </div>
-    
-    
 )
 export default MemberFeed;

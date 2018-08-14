@@ -20,6 +20,18 @@
     text-align: right;
     padding-right: 5%;
 }
+.page1_goto_profile:hover{
+    color: rgb(230, 98, 230);
+}
+.page1_goto_profile{
+    color: whitesmoke;
+    margin-left: 77%;
+    padding-right: 5%;
+    background-color: transparent;
+    font-size: 20px;
+    border: none;
+    border-radius: 3%;
+}
 .page2{
     background-image: linear-gradient(
         rgba(0, 0, 0, 0), 
